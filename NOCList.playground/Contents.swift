@@ -67,14 +67,25 @@ func total(arr: Array<(coverName: String, realName: String, accessLevel: Int, co
 print("\(total(arr: arr)) agents have been compromised!")
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
-
+func findCleanAgents(arr: Array<(coverName: String, realName: String, accessLevel: Int, compromised: Bool)>) -> Int {
+    var uncompromisedAgents: Array<String> = []
+    for i in arr {
+        var agents: Array<String> = []
+        if i.compromised == false {
+            print(i.coverName)
+            agents.append(i.coverName)
+        }
+        for agent in agents {
+            uncompromisedAgents.append(agent)
+        }
+    }
+    return uncompromisedAgents.count
+}
 
 
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
-
-
+print("\(total(arr: arr)) clean agents out of \(findCleanAgents(arr: arr)) total agent(s).")
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
