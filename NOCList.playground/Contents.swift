@@ -41,19 +41,30 @@ let agent9 = (coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", 
 let agent10 = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true )
 let agent11 = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false )
 
+
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
 let arr = [agent1, agent2, agent3, agent4, agent5, agent6, agent7, agent8, agent9, agent10, agent11]
+
+
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
+func total(arr: Array<(coverName: String, realName: String, accessLevel: Int, compromised: Bool)>) -> Int {
+    var count = 0
+    for i in arr {
+        if i.compromised == true {
+            count += 1
+        }
+    }
+    return count
+}
+
 
 
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
-
-
+print("\(total(arr: arr)) agents have been compromised!")
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
 
